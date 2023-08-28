@@ -13,8 +13,6 @@ function App() {
         <FancyHeader />
       </div>
         <MenuBar fontSize={"6vmin"} backgroundColor={"#E4EFF3"} items={upperMenuBarItems} upperOrLowerMenuBar={'upper'}/>
-
-        <div></div>
         <MenuBar fontSize={"4vmin"} backgroundColor={"#C0D8E0"} items={lowerMenuBarItems} upperOrLowerMenuBar={'lower'}/> 
         {/* have a show toggle for this ^ for when convert is selected */}
 
