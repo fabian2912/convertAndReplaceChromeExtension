@@ -30,27 +30,6 @@ h1 {
     transform: translateY(-5px);
   }
   
-  /* .colorful-text:hover .colorful-letter {
-    color: black;
-  } */
-  
   .colorful-text:hover .colorful-letter:hover {
     color: var(--assigned-color);
   }
-
-  /* colorful-text {
-    display: inline-block;
-    font-size: 2em;
-    font-weight: bold;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .colorful-letter {
-    display: inline-block;
-  }
-  
-  .colorful-letter:hover {
-    transform: translateY(-5px);
-    color: var(--assigned-color);
-  } */
