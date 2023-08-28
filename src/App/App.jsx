@@ -7,7 +7,6 @@ function App() {
     const upperMenuBarItems= ['Convert', 'Replace'];
     const lowerMenuBarItems = ['Weight', 'Size', 'Temperature'];
 
-
     // notes to myself:
     // if convertMenu && weightTab, show weightPanel
     // if convertMenu && sizeTab, show sizePanel
