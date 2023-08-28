@@ -22,36 +22,37 @@ const FancyHeader = () => {
       };
       const [initialAnimationComplete, setInitialAnimationComplete] = useState(false);
 
-  useEffect(() => {
-    if (!initialAnimationComplete) {
-      animateInitialLetters();
-    }
-  }, [initialAnimationComplete]);
-
-  const animateInitialLetters = () => {
-    const letterSpans = document.querySelectorAll(`.${classes["colorful-letter"]}`);
-
-    letterSpans.forEach((span, index) => {
-      setTimeout(() => {
-        requestAnimationFrame(() => {
-          span.style.transition = 'transform 0.5s ease, color 0.5s ease';
-          span.style.transform = 'translateY(-5px)';
-          span.style.color = getColorForIndex(index);
+      useEffect(() => {
+        // Animate letters initially
+        if (!initialAnimationComplete) {
+          animateInitialLetters();
+        }
+      }, [initialAnimationComplete]);
+    
+      const animateInitialLetters = () => {
+        const letterSpans = document.querySelectorAll(`.${classes["colorful-letter"]}`);
+    
+        letterSpans.forEach((span, index) => {
+          setTimeout(() => {
+            requestAnimationFrame(() => {
+              span.style.transition = 'transform 0.33s ease, color 0.33s ease';
+              span.style.transform = 'translateY(-5px)';
+              span.style.color = getColorForIndex(index);
+            });
+    
+            setTimeout(() => {
+              requestAnimationFrame(() => {
+                span.style.transform = 'translateY(0)';
+                span.style.color = 'black';
+              });
+            }, 2000);
+          }, index * 33);
         });
-
+    
         setTimeout(() => {
-          requestAnimationFrame(() => {
-            span.style.transform = 'translateY(0)';
-            span.style.color = 'black';
-          });
-        }, 3000);
-      }, index * 50);
-    });
-
-    setTimeout(() => {
-      setInitialAnimationComplete(true);
-    }, text.length * 50);
-  };
+          setInitialAnimationComplete(true);
+        }, text.length * 33);
+      };
 
     return (
         <h1 className={classes["colorful-text"]}> 
