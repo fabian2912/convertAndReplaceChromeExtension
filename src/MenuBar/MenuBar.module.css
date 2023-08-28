@@ -29,6 +29,7 @@
     margin-left: 0%;
     margin-right: 5%;
     transition: transform 0.3s, color 0.3s;
+    cursor: pointer; /* Add cursor pointer for better interaction */
     /* font-size: 6vmin; */
   }
   
@@ -47,14 +48,14 @@
     /* background-color: #C1DAE3; */
     /* #5465ff; */
   }
+
+  .upper li:hover,
+  .upper .clicked { 
+  color: #ff9500;
+  }
+
+  .lower li:hover,
+  .lower .clicked { 
+  color: #FF1600;
+  }
   
-  /* .menu-bar a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    transition: color 0.3s;
-  } */
-  
-  /* .menu-bar a:hover {
-    color: #ff9900;
-  } */

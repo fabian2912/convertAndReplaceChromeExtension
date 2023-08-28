@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import styles from './MenuBar.module.css';
-import {featuresUpper, featuresLower, setFeatureToggle} from '../config';
+import {featuresUpper, featuresLower, flickFeatureToggle} from '../config';
 
 
 const MenuBar = ({fontSize, backgroundColor, items, upperOrLowerMenuBar}) => {
@@ -9,40 +9,29 @@ const MenuBar = ({fontSize, backgroundColor, items, upperOrLowerMenuBar}) => {
     console.error("no items");
   }
 
-    // weightTab: true, // when on, displays the weightPanel and highlights the weight option
-    // sizeTab: false, // when on, displays the sizePanel and highlights the size option
-    // temperatureTab: false // when on, displays the temperaturePanel and highlights the temperature option
-
   const [clickedItem, setClickedItem] = useState(null);
-  const handleItemClickForUpperMenuBar = (itemClicked) => {
+  const handleItemClick = (itemClicked) => {
     setClickedItem(itemClicked);
     switch (itemClicked) {
       case 'Convert':
         setClickedItem(itemClicked);
-        featuresUpper.flickFeatureToggle(featuresUpper.convertMenu);
+        flickFeatureToggle(featuresUpper.convertMenu);
         break;
       case 'Replace':
         setClickedItem(itemClicked);
-        featuresUpper.flickFeatureToggle(featuresUpper.convertMenu);
+        flickFeatureToggle(featuresUpper.replaceMenu);
         break;
-      default:
-        setClickedItem(null);
-    }
-  };
-  const handleItemClickForLowerMenuBar = (itemClicked) => {
-    setClickedItem(itemClicked);
-    switch (itemClicked) {
       case 'Weight':
         setClickedItem(itemClicked);
-        featuresLower.flickFeatureToggle(featuresLower.convertMenu);
+        flickFeatureToggle(featuresLower.weightTab);
         break;
       case 'Size':
         setClickedItem(itemClicked);
-        featuresLower.flickFeatureToggle(featuresLower.convertMenu);
+        flickFeatureToggle(featuresLower.sizeTab);
         break;
         case 'Temperature':
         setClickedItem(itemClicked);
-        featuresLower.flickFeatureToggle(featuresLower.convertMenu);
+        flickFeatureToggle(featuresLower.temperatureTab);
         break;
       default:
         setClickedItem(null);
@@ -51,6 +40,7 @@ const MenuBar = ({fontSize, backgroundColor, items, upperOrLowerMenuBar}) => {
 
   const menuBarClass = upperOrLowerMenuBar === 'lower' ? styles.lower : styles.upper;
 
+  // To-do:
   // implement onClick logic with styling of 'convert', 'replace', 'weight' etc.
   // maybe have different className depending on onClick, which links to CSS
 
@@ -58,7 +48,15 @@ const MenuBar = ({fontSize, backgroundColor, items, upperOrLowerMenuBar}) => {
     <div className={`${styles['menu-bar']} ${menuBarClass}`} style={{ backgroundColor: backgroundColor }}>
         <ul>
           {items.map((item, index) => (
-            <li key={index} style={{'font-size': `${fontSize}`}}>{item}</li>
+            <li 
+              key={index} 
+              style={{'font-size': `${fontSize}`}}
+              className={`${clickedItem === item ? styles.clicked : ''}`}
+              onClick={() => handleItemClick(item)}
+              // onClick={() => handleItemClickForLowerMenuBar(item)} 
+              >
+                {item}
+            </li>
           ))}
         </ul>
     </div>
