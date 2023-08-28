@@ -20,7 +20,7 @@ const FancyHeader = () => {
         event.target.style.transform = 'translateY(0)';
         event.target.style.color = 'black';
       };
-      
+
     return (
         <h1 className={classes["colorful-text"]}> 
           {[...text].map((char, index) => (
@@ -28,7 +28,7 @@ const FancyHeader = () => {
               key={index}
               className={classes["colorful-letter"]}
               style={{
-                transition: 'transform 0.2s, color 0.2s',
+                transition: 'transform 0.15s, color 0.2s',
                 '--assigned-color': colorWheelHexadecimals[index % colorWheelHexadecimals.length],
               }}
               data-index={index}
