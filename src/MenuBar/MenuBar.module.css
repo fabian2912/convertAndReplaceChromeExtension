@@ -32,10 +32,18 @@
     /* font-size: 6vmin; */
   }
   
-  .menu-bar li:hover {
+  .upper li:hover {
     transform: translateY(-5px); /* Move the item up a bit*/
     /* color: #ff9900; Slightly change the color */
     color: #ff9500;
+    /* background-color: #C1DAE3; */
+    /* #5465ff; */
+  }
+
+  .lower li:hover {
+    transform: translateY(-5px); /* Move the item up a bit*/
+    /* color: #ff9900; Slightly change the color */
+    color: #FF1600;
     /* background-color: #C1DAE3; */
     /* #5465ff; */
   }
